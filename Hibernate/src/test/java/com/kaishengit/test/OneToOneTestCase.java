@@ -34,7 +34,7 @@ public class OneToOneTestCase {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
 
-        Person person = (Person) session.get(Person.class,10);
+        Person person = (Person) session.get(Person.class,11);
        System.out.println(person.getName());
         System.out.println(person.getCard().getCardname());
 
@@ -48,7 +48,7 @@ public class OneToOneTestCase {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
 
-        Card card = (Card) session.get(Card.class,10);
+        Card card = (Card) session.get(Card.class,11);
         System.out.println(card.getCardname());
         System.out.println(card.getPerson().getName());
         session.getTransaction().commit();
@@ -59,7 +59,7 @@ public class OneToOneTestCase {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
 
-        Card card = (Card) session.get(Card.class,10);
+        Card card = (Card) session.get(Card.class,12);
         session.delete(card);
         session.getTransaction().commit();
 
@@ -69,7 +69,7 @@ public class OneToOneTestCase {
     public void  testDeletePerson(){
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-        Person person = (Person) session.get(Person.class,10);
+        Person person = (Person) session.get(Person.class,12);
         session.delete(person);
         session.getTransaction().commit();
 

@@ -3,14 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.kaishengit.pojo">
-    <class name="Person" table="t_person">
-        <id name="id" >
-            <generator class="native"/>
-        </id>
-        <property name="name"/>
-        <!--One to One的配置-->
-        <one-to-one name="card" class="Card" cascade="delete"/>
-
-
+    <class name="Topic" table="t_topic">
+        <id name="id">
+        <generator class="native"/>
+    </id>
+        <property name="title"/>
+        <many-to-one name="topicContent" column="contentid" class="TopicContent" unique="true"/>
     </class>
 </hibernate-mapping>

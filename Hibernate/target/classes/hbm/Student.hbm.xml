@@ -3,13 +3,16 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.kaishengit.pojo">
-    <class name="Person" table="t_person">
-        <id name="id" >
+    <class name="Student" table="t_student">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="name"/>
-        <!--One to One的配置-->
-        <one-to-one name="card" class="Card" cascade="delete"/>
+        <property name="stuname"/>
+        <!--ManyToMany-->
+        <set name="teacherSet" table="t_student_teacher">
+            <key column="stuid"/>
+            <many-to-many column="teaid" class="Teacher"/>
+        </set>
 
 
     </class>
